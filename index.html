@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lescano & Asociados — Estudio Contable en Piura</title>
+<meta name="description" content="Asesoría tributaria y contable en Piura que impulsa el crecimiento de tu negocio. Convertimos impuestos, SUNAT y planillas en decisiones claras. Primera consulta gratis por WhatsApp." />
+<meta name="theme-color" content="#0F4C4A" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Lescano & Asociados — Estudio Contable en Piura" />
+<meta property="og:description" content="Convertimos impuestos, SUNAT y planillas en decisiones claras. Asesoría con rigor técnico y trato cercano." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="brand_assets/favicon-180.png" />
+
+<link rel="icon" type="image/png" href="brand_assets/favicon-64.png" />
+<link rel="apple-touch-icon" href="brand_assets/favicon-180.png" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   TOKENS
+============================================================ */
+:root{
+  --petroleo:#0F4C4A;
+  --petroleo-deep:#0A3633;
+  --petroleo-deeper:#072623;
+  --teal:#1B6B68;
+  --teal-claro:#2E8B86;
+  --oro:#C9A24B;
+  --oro-soft:#E0C079;
+  --tinta:#1A2E2C;
+  --papel:#FBFAF7;
+  --papel-2:#F3EFE7;
+  --white:#ffffff;
+
+  --line:rgba(15,76,74,.12);
+  --line-2:rgba(15,76,74,.07);
+  --line-dark:rgba(255,255,255,.14);
+  --line-dark-2:rgba(255,255,255,.08);
+
+  /* spacing (8pt) */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px;
+  --s7:48px; --s8:64px; --s9:96px; --s10:128px;
+
+  --maxw:1160px;
+  --radius:20px;
+  --radius-sm:14px;
+  --radius-xs:10px;
+
+  --ease:cubic-bezier(.22,1,.36,1);
+  --ease-2:cubic-bezier(.16,1,.3,1);
+
+  --shadow-card:0 1px 2px rgba(10,54,52,.05), 0 10px 24px -10px rgba(10,54,52,.16), 0 30px 56px -28px rgba(10,54,52,.22);
+  --shadow-float:0 12px 30px -10px rgba(10,54,52,.35), 0 32px 64px -24px rgba(7,38,35,.42);
+  --shadow-oro:0 10px 26px -10px rgba(201,162,75,.45);
+}
+
+/* ============================================================
+   RESET / BASE
+============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--papel);
+  color:var(--tinta);
+  line-height:1.7;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+ul{list-style:none}
+
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;line-height:1.1;letter-spacing:-.02em;color:var(--tinta)}
+
+::selection{background:var(--oro);color:var(--petroleo-deeper)}
+
+:focus-visible{outline:2.5px solid var(--oro);outline-offset:3px;border-radius:4px}
+
+.container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 var(--s5)}
+
+.skip{position:absolute;left:-9999px;top:0;background:var(--oro);color:var(--petroleo-deeper);padding:10px 16px;border-radius:8px;z-index:200;font-weight:600}
+.skip:focus{left:16px;top:16px}
+
+/* ============================================================
+   SHARED — eyebrow, buttons
+============================================================ */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--teal);
+}
+.eyebrow::before{
+  content:"";width:26px;height:13px;flex:none;
+  /* notched rook-crown motif */
+  background:
+    linear-gradient(var(--oro),var(--oro)) left bottom/100% 5px no-repeat,
+    linear-gradient(var(--oro),var(--oro)) 0 0/5px 13px no-repeat,
+    linear-gradient(var(--oro),var(--oro)) 10px 0/5px 13px no-repeat,
+    linear-gradient(var(--oro),var(--oro)) 21px 0/5px 13px no-repeat;
+}
+.eyebrow.on-dark{color:var(--oro-soft)}
+
+.btn{
+  --pad-y:14px;--pad-x:24px;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:var(--pad-y) var(--pad-x);
+  font-family:'Inter',sans-serif;font-weight:600;font-size:.98rem;
+  border-radius:999px;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), background-color .25s var(--ease), color .25s var(--ease);
+  will-change:transform;
+}
+.btn svg{width:19px;height:19px;flex:none}
+.btn-primary{background:var(--oro);color:var(--petroleo-deeper);box-shadow:var(--shadow-oro)}
+.btn-primary:hover{transform:translateY(-2px);background:var(--oro-soft);box-shadow:0 16px 34px -10px rgba(201,162,75,.6)}
+.btn-primary:active{transform:translateY(0)}
+.btn-ghost{background:transparent;color:var(--white);border:1.5px solid var(--line-dark)}
+.btn-ghost:hover{transform:translateY(-2px);background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.4)}
+.btn-ghost:active{transform:translateY(0)}
+.btn-ghost-dark{background:transparent;color:var(--petroleo);border:1.5px solid var(--line)}
+.btn-ghost-dark:hover{transform:translateY(-2px);background:rgba(15,76,74,.05);border-color:var(--teal)}
+.btn-wa{background:#25D366;color:#06351c}
+.btn-wa:hover{transform:translateY(-2px);background:#2bea72;box-shadow:0 16px 34px -12px rgba(37,211,102,.6)}
+.btn-wa:active{transform:translateY(0)}
+.btn-block{width:100%}
+
+/* ============================================================
+   NAVBAR
+============================================================ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:background-color .4s var(--ease), box-shadow .4s var(--ease), padding .4s var(--ease), backdrop-filter .4s var(--ease);
+  padding:18px 0;
+}
+.nav::before{
+  content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,38,35,.55),rgba(7,38,35,0));
+  opacity:1;transition:opacity .4s var(--ease);pointer-events:none;
+}
+.nav.scrolled{padding:10px 0;background:rgba(11,54,51,.88);backdrop-filter:blur(14px) saturate(140%);box-shadow:0 1px 0 var(--line-dark-2),0 10px 30px -16px rgba(0,0,0,.5)}
+.nav.scrolled::before{opacity:0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--s4)}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{height:42px;width:auto;transition:height .4s var(--ease)}
+.nav.scrolled .brand img{height:36px}
+.brand-text{display:flex;flex-direction:column;line-height:1}
+.brand-text .bt-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.98rem;letter-spacing:.02em;color:#fff}
+.brand-text .bt-sub{font-size:.56rem;font-weight:500;letter-spacing:.32em;color:var(--oro-soft);margin-top:4px;text-transform:uppercase}
+
+.nav-links{display:none;align-items:center;gap:var(--s6)}
+.nav-links a{font-size:.92rem;font-weight:500;color:rgba(255,255,255,.82);position:relative;padding:6px 0;transition:color .25s var(--ease)}
+.nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:2px;background:var(--oro);transition:right .35s var(--ease)}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{right:0}
+.nav-cta{display:none}
+
+.nav-toggle{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:46px;height:46px;border-radius:12px;border:1px solid var(--line-dark);align-items:center;transition:background-color .25s var(--ease)}
+.nav-toggle:hover{background:rgba(255,255,255,.06)}
+.nav-toggle span{width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .35s var(--ease),opacity .25s var(--ease)}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* mobile menu */
+.mobile-menu{
+  position:fixed;inset:0 0 0 auto;width:min(86vw,360px);z-index:99;
+  background:linear-gradient(180deg,var(--petroleo),var(--petroleo-deep));
+  transform:translateX(100%);transition:transform .45s var(--ease-2);
+  padding:96px var(--s6) var(--s6);display:flex;flex-direction:column;gap:var(--s2);
+  box-shadow:var(--shadow-float);
+}
+.mobile-menu.open{transform:translateX(0)}
+.mobile-menu a{padding:16px 4px;font-size:1.1rem;font-weight:500;color:rgba(255,255,255,.9);border-bottom:1px solid var(--line-dark-2);transition:color .2s var(--ease),padding-left .25s var(--ease)}
+.mobile-menu a:hover{color:var(--oro-soft);padding-left:10px}
+.mobile-menu .btn{margin-top:var(--s5)}
+.scrim{position:fixed;inset:0;background:rgba(7,38,35,.55);backdrop-filter:blur(2px);opacity:0;visibility:hidden;transition:opacity .4s var(--ease);z-index:98}
+.scrim.open{opacity:1;visibility:visible}
+
+/* ============================================================
+   HERO
+============================================================ */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(120% 90% at 88% -5%, rgba(46,139,134,.42), transparent 55%),
+    radial-gradient(90% 70% at 8% 110%, rgba(27,107,104,.55), transparent 60%),
+    radial-gradient(60% 50% at 70% 80%, rgba(201,162,75,.10), transparent 70%),
+    linear-gradient(160deg,var(--petroleo) 0%, var(--petroleo-deep) 60%, var(--petroleo-deeper) 100%);
+  color:#fff;
+  padding:140px 0 72px;
+}
+.hero::after{ /* grain */
+  content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:soft-light;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+.hero-watermark{
+  position:absolute;right:-8%;top:50%;transform:translateY(-50%);
+  height:118%;width:auto;opacity:.05;pointer-events:none;z-index:0;filter:drop-shadow(0 0 40px rgba(0,0,0,.3));
+}
+.hero-inner{position:relative;z-index:2;max-width:760px}
+.hero .eyebrow{margin-bottom:var(--s5)}
+.hero h1{
+  color:#fff;font-weight:800;font-size:clamp(2.1rem,7.4vw,4rem);letter-spacing:-.03em;line-height:1.04;
+  margin-bottom:var(--s5);
+}
+.hero h1 .accent{
+  color:var(--oro-soft);position:relative;white-space:nowrap;
+}
+.hero h1 .accent::after{
+  content:"";position:absolute;left:0;right:0;bottom:.04em;height:.09em;border-radius:4px;
+  background:linear-gradient(90deg,var(--oro),transparent);
+}
+.hero-sub{
+  font-size:clamp(1.02rem,2.6vw,1.22rem);color:rgba(255,255,255,.82);max-width:560px;
+  margin-bottom:var(--s7);font-weight:400;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:var(--s4);margin-bottom:var(--s7)}
+.hero-trust{
+  display:flex;flex-wrap:wrap;align-items:center;gap:var(--s3) var(--s5);
+  padding-top:var(--s6);border-top:1px solid var(--line-dark-2);
+}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:.9rem;color:rgba(255,255,255,.8)}
+.trust-item svg{width:18px;height:18px;color:var(--oro-soft);flex:none}
+.trust-item strong{color:#fff;font-weight:600}
+
+.review-chip{
+  position:relative;z-index:2;display:inline-flex;align-items:center;gap:14px;margin-top:var(--s7);
+  background:rgba(255,255,255,.06);border:1px solid var(--line-dark);backdrop-filter:blur(8px);
+  padding:12px 18px;border-radius:16px;box-shadow:var(--shadow-float);
+}
+.review-chip .stars{color:var(--oro);letter-spacing:2px;font-size:.95rem}
+.review-chip .rc-text{font-size:.85rem;color:rgba(255,255,255,.86)}
+.review-chip .rc-text b{color:#fff}
+
+/* ============================================================
+   SECTION SHELL
+============================================================ */
+.section{padding:var(--s9) 0}
+.section-head{max-width:660px;margin-bottom:var(--s7)}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.section-head h2{font-size:clamp(1.7rem,4.6vw,2.7rem);font-weight:700;margin:var(--s4) 0 var(--s4)}
+.section-head p{color:#4a5a57;font-size:1.05rem}
+.section.dark .section-head p{color:rgba(255,255,255,.78)}
+.section.dark h2{color:#fff}
+
+/* ============================================================
+   SERVICIOS
+============================================================ */
+.servicios{background:var(--papel);position:relative}
+.serv-grid{display:grid;grid-template-columns:1fr;gap:var(--s5)}
+.serv-card{
+  position:relative;background:#fff;border:1px solid var(--line-2);border-radius:var(--radius);
+  padding:var(--s6) var(--s6) var(--s7);box-shadow:var(--shadow-card);overflow:hidden;
+  transition:transform .45s var(--ease), box-shadow .45s var(--ease), border-color .45s var(--ease);
+}
+.serv-card::before{ /* battlement top accent */
+  content:"";position:absolute;top:0;left:var(--s6);width:46px;height:6px;border-radius:0 0 3px 3px;
+  background:var(--oro);
+  transition:width .45s var(--ease);
+}
+.serv-card:hover{transform:translateY(-6px);box-shadow:0 6px 14px -8px rgba(10,54,52,.18),0 40px 70px -30px rgba(10,54,52,.4);border-color:rgba(46,139,134,.35)}
+.serv-card:hover::before{width:84px}
+.serv-icon{
+  width:58px;height:58px;border-radius:16px;display:grid;place-items:center;margin-bottom:var(--s5);
+  background:linear-gradient(150deg,rgba(46,139,134,.16),rgba(15,76,74,.1));
+  border:1px solid rgba(46,139,134,.22);
+  color:var(--petroleo);
+}
+.serv-icon svg{width:30px;height:30px}
+.serv-card h3{font-size:1.28rem;font-weight:700;margin-bottom:var(--s3)}
+.serv-card p{color:#4a5a57;font-size:.98rem;margin-bottom:var(--s5)}
+.serv-list{display:flex;flex-direction:column;gap:10px}
+.serv-list li{display:flex;align-items:flex-start;gap:10px;font-size:.9rem;color:var(--tinta);font-weight:500}
+.serv-list li svg{width:17px;height:17px;color:var(--teal-claro);flex:none;margin-top:3px}
+
+/* ============================================================
+   NOSOTROS
+============================================================ */
+.nosotros{
+  position:relative;overflow:hidden;color:#fff;
+  background:
+    radial-gradient(80% 60% at 100% 0%, rgba(46,139,134,.3), transparent 55%),
+    radial-gradient(70% 60% at -5% 100%, rgba(201,162,75,.1), transparent 60%),
+    linear-gradient(165deg,var(--petroleo),var(--petroleo-deep));
+}
+.nosotros::after{
+  content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:soft-light;opacity:.4;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)' opacity='0.5'/%3E%3C/svg%3E");
+}
+.nosotros .container{position:relative;z-index:2}
+.nos-grid{display:grid;grid-template-columns:1fr;gap:var(--s7);align-items:center}
+.nos-media{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-float)}
+.nos-media img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.nos-media::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,rgba(15,76,74,.15),rgba(7,38,35,.72));mix-blend-mode:multiply}
+.nos-media .floating-stat{
+  position:absolute;left:18px;bottom:18px;z-index:2;display:flex;align-items:center;gap:12px;
+  background:rgba(11,54,51,.78);backdrop-filter:blur(10px);border:1px solid var(--line-dark);
+  padding:12px 16px;border-radius:14px;
+}
+.floating-stat .fs-num{font-family:'Montserrat';font-weight:800;font-size:1.5rem;color:var(--oro-soft);line-height:1}
+.floating-stat .fs-lbl{font-size:.78rem;color:rgba(255,255,255,.82);max-width:120px;line-height:1.3}
+
+.valores{display:grid;grid-template-columns:1fr;gap:var(--s4)}
+.valor{
+  background:rgba(255,255,255,.04);border:1px solid var(--line-dark-2);border-radius:var(--radius-sm);
+  padding:var(--s5);transition:transform .4s var(--ease),background-color .3s var(--ease),border-color .3s var(--ease);
+}
+.valor:hover{transform:translateY(-4px);background:rgba(255,255,255,.07);border-color:var(--line-dark)}
+.valor-ico{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;margin-bottom:var(--s3);background:rgba(201,162,75,.14);border:1px solid rgba(201,162,75,.3);color:var(--oro-soft)}
+.valor-ico svg{width:22px;height:22px}
+.valor h4{color:#fff;font-size:1.05rem;font-weight:700;margin-bottom:6px}
+.valor p{color:rgba(255,255,255,.74);font-size:.88rem;line-height:1.55}
+
+.stats{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s5) var(--s4);
+  margin-top:var(--s8);padding-top:var(--s7);border-top:1px solid var(--line-dark-2);
+}
+.stat{text-align:center}
+.stat .num{
+  font-family:'Montserrat';font-weight:800;font-size:clamp(2.2rem,7vw,3.1rem);
+  color:var(--oro-soft);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em;
+}
+.stat .lbl{display:block;margin-top:10px;font-size:.84rem;color:rgba(255,255,255,.78);font-weight:500}
+
+/* ============================================================
+   TESTIMONIOS
+============================================================ */
+.testimonios{background:var(--papel-2);position:relative}
+.proof-bar{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-bottom:var(--s8);
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow-card);
+}
+.proof-item{background:var(--papel);padding:var(--s5) var(--s4);text-align:center}
+.proof-item .pnum{font-family:'Montserrat';font-weight:800;font-size:1.5rem;color:var(--petroleo);font-variant-numeric:tabular-nums}
+.proof-item .plbl{display:block;margin-top:4px;font-size:.78rem;color:#5a6a67;font-weight:500}
+
+.tst-grid{display:grid;grid-template-columns:1fr;gap:var(--s5)}
+.tst-card{
+  position:relative;background:#fff;border:1px solid var(--line-2);border-radius:var(--radius);
+  padding:var(--s6);box-shadow:var(--shadow-card);
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease);
+}
+.tst-card:hover{transform:translateY(-5px);box-shadow:0 6px 14px -8px rgba(10,54,52,.18),0 40px 70px -30px rgba(10,54,52,.38)}
+.tst-quote{font-family:'Montserrat';font-weight:700;font-size:2.6rem;line-height:1;color:rgba(201,162,75,.4);margin-bottom:-6px}
+.tst-card p{color:#3f4f4c;font-size:.98rem;margin-bottom:var(--s5)}
+.tst-stars{color:var(--oro);letter-spacing:2px;margin-bottom:var(--s4);font-size:.92rem}
+.tst-author{display:flex;align-items:center;gap:12px}
+.tst-author img{width:46px;height:46px;border-radius:50%;object-fit:cover;border:2px solid rgba(46,139,134,.3)}
+.tst-author .ta-name{font-weight:600;font-size:.94rem;color:var(--tinta)}
+.tst-author .ta-role{font-size:.8rem;color:#6a7a77}
+.tst-foot{text-align:center;margin-top:var(--s7)}
+.tst-foot a{display:inline-flex;align-items:center;gap:8px;color:var(--teal);font-weight:600;font-size:.95rem;border-bottom:1.5px solid transparent;transition:border-color .25s var(--ease)}
+.tst-foot a:hover{border-color:var(--teal)}
+.tst-foot svg{width:18px;height:18px}
+
+/* ============================================================
+   CONTACTO
+============================================================ */
+.contacto{
+  position:relative;overflow:hidden;color:#fff;
+  background:
+    radial-gradient(70% 70% at 100% 0%, rgba(46,139,134,.32), transparent 55%),
+    linear-gradient(160deg,var(--petroleo),var(--petroleo-deeper));
+}
+.contacto::after{
+  content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:soft-light;opacity:.4;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n3'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n3)' opacity='0.5'/%3E%3C/svg%3E");
+}
+.contacto .container{position:relative;z-index:2}
+.cnt-grid{display:grid;grid-template-columns:1fr;gap:var(--s7)}
+.cnt-info{display:flex;flex-direction:column;gap:var(--s4)}
+.cnt-row{display:flex;gap:14px;align-items:flex-start}
+.cnt-row .ci-ico{width:44px;height:44px;flex:none;border-radius:12px;display:grid;place-items:center;background:rgba(201,162,75,.14);border:1px solid rgba(201,162,75,.3);color:var(--oro-soft)}
+.cnt-row .ci-ico svg{width:21px;height:21px}
+.cnt-row .ci-lbl{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--oro-soft);font-weight:600;margin-bottom:3px}
+.cnt-row .ci-val{color:#fff;font-size:1rem;font-weight:500}
+.cnt-row a.ci-val{transition:color .2s var(--ease)}
+.cnt-row a.ci-val:hover{color:var(--oro-soft)}
+.cnt-info .btn{margin-top:var(--s4)}
+.cnt-social{display:flex;gap:12px;margin-top:var(--s2)}
+.cnt-social a{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.05);border:1px solid var(--line-dark-2);color:#fff;transition:transform .3s var(--ease),background-color .25s var(--ease)}
+.cnt-social a:hover{transform:translateY(-3px);background:rgba(255,255,255,.1)}
+.cnt-social svg{width:20px;height:20px}
+
+.cnt-form{
+  background:rgba(255,255,255,.05);border:1px solid var(--line-dark);border-radius:var(--radius);
+  padding:var(--s6);backdrop-filter:blur(6px);box-shadow:var(--shadow-float);
+}
+.cnt-form h3{color:#fff;font-size:1.3rem;margin-bottom:6px}
+.cnt-form .ff-sub{font-size:.9rem;color:rgba(255,255,255,.72);margin-bottom:var(--s5)}
+.field{margin-bottom:var(--s4)}
+.field label{display:block;font-size:.82rem;font-weight:500;color:rgba(255,255,255,.85);margin-bottom:7px}
+.field input,.field textarea{
+  width:100%;padding:13px 15px;border-radius:12px;font-family:inherit;font-size:.95rem;
+  background:rgba(255,255,255,.07);border:1px solid var(--line-dark);color:#fff;
+  transition:border-color .25s var(--ease),background-color .25s var(--ease);
+}
+.field input::placeholder,.field textarea::placeholder{color:rgba(255,255,255,.4)}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--oro);background:rgba(255,255,255,.1)}
+.field textarea{resize:vertical;min-height:110px}
+.form-note{font-size:.78rem;color:rgba(255,255,255,.6);margin-top:var(--s3);text-align:center}
+
+.cnt-map{margin-top:var(--s8);border-radius:var(--radius);overflow:hidden;border:1px solid var(--line-dark);box-shadow:var(--shadow-float);position:relative}
+.cnt-map iframe{display:block;width:100%;height:340px;border:0;filter:grayscale(.2) contrast(1.05)}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.footer{background:var(--petroleo-deeper);color:rgba(255,255,255,.7);padding:var(--s8) 0 var(--s6)}
+.foot-grid{display:grid;grid-template-columns:1fr;gap:var(--s7);padding-bottom:var(--s7);border-bottom:1px solid var(--line-dark-2)}
+.foot-brand img{height:54px;margin-bottom:var(--s4)}
+.foot-brand .fb-name{font-family:'Montserrat';font-weight:700;color:#fff;font-size:1.1rem;letter-spacing:.02em}
+.foot-brand .fb-sub{font-size:.6rem;letter-spacing:.3em;color:var(--oro-soft);text-transform:uppercase;margin:4px 0 14px}
+.foot-brand p{font-size:.92rem;max-width:320px;line-height:1.65}
+.foot-col h5{color:#fff;font-family:'Montserrat';font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:var(--s4);font-weight:600}
+.foot-col ul{display:flex;flex-direction:column;gap:12px}
+.foot-col a,.foot-col li{font-size:.92rem;transition:color .2s var(--ease)}
+.foot-col a:hover{color:var(--oro-soft)}
+.foot-bottom{display:flex;flex-direction:column;gap:10px;padding-top:var(--s5);font-size:.82rem;color:rgba(255,255,255,.5)}
+.foot-bottom a{color:rgba(255,255,255,.7)}
+.foot-bottom a:hover{color:var(--oro-soft)}
+
+/* ============================================================
+   FLOATING WHATSAPP
+============================================================ */
+.fab{
+  position:fixed;right:18px;bottom:18px;z-index:90;
+  display:inline-flex;align-items:center;gap:0;
+  background:#25D366;color:#fff;border-radius:999px;
+  padding:14px;box-shadow:0 12px 30px -8px rgba(37,211,102,.6),0 8px 20px -6px rgba(0,0,0,.3);
+  transform:translateY(120px) scale(.8);opacity:0;
+  transition:transform .5s var(--ease-2),opacity .4s var(--ease),gap .35s var(--ease),padding .35s var(--ease);
+  overflow:hidden;
+}
+.fab.show{transform:translateY(0) scale(1);opacity:1}
+.fab svg{width:30px;height:30px;flex:none}
+.fab .fab-label{max-width:0;opacity:0;white-space:nowrap;font-weight:600;font-size:.95rem;transition:max-width .4s var(--ease),opacity .3s var(--ease)}
+.fab:hover{gap:10px;padding:14px 22px 14px 16px}
+.fab:hover .fab-label{max-width:140px;opacity:1}
+.fab::after{content:"";position:absolute;inset:0;border-radius:999px;border:2px solid #25D366;animation:pulse 2.4s var(--ease) infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.7}70%{transform:scale(1.5);opacity:0}100%{opacity:0}}
+
+/* ============================================================
+   REVEAL
+============================================================ */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease-2),transform .7s var(--ease-2)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}
+.reveal.d2{transition-delay:.16s}
+.reveal.d3{transition-delay:.24s}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (min-width:560px){
+  .stats{grid-template-columns:repeat(4,1fr)}
+  .proof-bar{grid-template-columns:repeat(4,1fr)}
+  .serv-grid{grid-template-columns:repeat(2,1fr)}
+  .valores{grid-template-columns:repeat(2,1fr)}
+  .tst-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:900px){
+  .container{padding:0 var(--s7)}
+  .nav-links,.nav-cta{display:flex}
+  .nav-toggle{display:none}
+  .hero{padding:170px 0 96px}
+  .nos-grid{grid-template-columns:1.05fr 1fr}
+  .cnt-grid{grid-template-columns:1fr 1fr;align-items:start}
+  .serv-grid{grid-template-columns:repeat(2,1fr)}
+  .tst-grid{grid-template-columns:repeat(3,1fr)}
+  .foot-grid{grid-template-columns:1.6fr 1fr 1fr 1.2fr}
+  .foot-bottom{flex-direction:row;justify-content:space-between;align-items:center}
+}
+@media (min-width:1080px){
+  .serv-grid{grid-template-columns:repeat(4,1fr)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+  .reveal{opacity:1;transform:none}
+  .fab{transform:none;opacity:1}
+  .fab::after{display:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#servicios">Saltar al contenido</a>
+
+<!-- ============================ NAVBAR ============================ -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#inicio" aria-label="Lescano & Asociados — Inicio">
+      <img src="brand_assets/logo-icon-white.png" alt="Logotipo de Lescano & Asociados" />
+      <span class="brand-text">
+        <span class="bt-name">LESCANO &amp; ASOCIADOS</span>
+        <span class="bt-sub">Estudio Contable</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <a class="btn btn-primary nav-cta" href="https://wa.me/51969018352?text=Hola%2C%20quiero%20una%20consulta%20gratis%20con%20Lescano%20%26%20Asociados." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.711zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+      Consulta gratis
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="scrim" id="scrim"></div>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Navegación móvil">
+  <a href="#inicio">Inicio</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#nosotros">Nosotros</a>
+  <a href="#contacto">Contacto</a>
+  <a class="btn btn-primary" href="https://wa.me/51969018352?text=Hola%2C%20quiero%20una%20consulta%20gratis%20con%20Lescano%20%26%20Asociados." target="_blank" rel="noopener">Consulta gratis</a>
+</nav>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" id="inicio">
+  <img class="hero-watermark" src="brand_assets/logo-icon-white.png" alt="" aria-hidden="true" />
+  <div class="container hero-inner">
+    <span class="eyebrow on-dark">Estudio Contable · Piura, Perú</span>
+    <h1>Convertimos impuestos, SUNAT y planillas en <span class="accent">decisiones claras</span>.</h1>
+    <p class="hero-sub">Asesoría tributaria y contable que impulsa el crecimiento de tu negocio. Te acompañamos con rigor técnico y trato cercano, para que decidas con tranquilidad y a tiempo.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://wa.me/51969018352?text=Hola%2C%20quiero%20agendar%20una%20consulta%20gratuita%20con%20Lescano%20%26%20Asociados." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.711zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+        Agenda tu consulta
+      </a>
+      <a class="btn btn-ghost" href="#servicios">Conoce los servicios</a>
+    </div>
+
+    <div class="hero-trust">
+      <span class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+        <span><strong>100%</strong> recomendado</span>
+      </span>
+      <span class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        <span><strong>7.6 mil</strong> seguidores</span>
+      </span>
+      <span class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <span>Atención <strong>siempre abierta</strong></span>
+      </span>
+    </div>
+
+    <div class="review-chip">
+      <span class="stars" aria-hidden="true">★★★★★</span>
+      <span class="rc-text"><b>14 reseñas</b> · 100% recomendado en Piura</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SERVICIOS ============================ -->
+<section class="section servicios" id="servicios">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Servicios</span>
+      <h2>Todo lo que tu negocio necesita, en un solo estudio.</h2>
+      <p>Resolvemos lo complejo y te lo explicamos simple. Tú te concentras en crecer; nosotros, en que todo esté al día y en regla.</p>
+    </div>
+
+    <div class="serv-grid">
+      <!-- Tributaria -->
+      <article class="serv-card reveal">
+        <div class="serv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3>Asesoría Tributaria</h3>
+        <p>Cumplimiento ante SUNAT sin sustos. Declaraciones al día, impuestos optimizados y respuestas claras cuando las necesitas.</p>
+        <ul class="serv-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Declaraciones mensuales y anuales</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Régimen tributario óptimo</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Acompañamiento en fiscalizaciones</li>
+        </ul>
+      </article>
+
+      <!-- Contable -->
+      <article class="serv-card reveal d1">
+        <div class="serv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6" rx="1"/><rect x="12.5" y="7" width="3" height="10" rx="1"/><rect x="18" y="13" width="3" height="4" rx="1"/></svg>
+        </div>
+        <h3>Asesoría Contable</h3>
+        <p>Tus números, ordenados y entendibles. Estados financieros confiables para decidir con información real, no con corazonadas.</p>
+        <ul class="serv-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Estados financieros mensuales</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Libros y registros electrónicos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Análisis de resultados</li>
+        </ul>
+      </article>
+
+      <!-- Planillas -->
+      <article class="serv-card reveal d2">
+        <div class="serv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20a5.5 5.5 0 0111 0"/><path d="M16 8h5M16 12h5M17.5 16H21"/></svg>
+        </div>
+        <h3>Planillas y RR.&nbsp;HH.</h3>
+        <p>Tu equipo, pagado y en regla. Planillas, beneficios sociales y aportes calculados al detalle y siempre a tiempo.</p>
+        <ul class="serv-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Cálculo de planillas y aportes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Beneficios sociales y CTS</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Altas y bajas en T-Registro</li>
+        </ul>
+      </article>
+
+      <!-- Constitución -->
+      <article class="serv-card reveal d3">
+        <div class="serv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-4 7 4v13"/><path d="M9 21v-5h6v5"/><path d="M9.5 11h.01M14.5 11h.01"/></svg>
+        </div>
+        <h3>Constitución de Empresas</h3>
+        <p>Formaliza tu idea sin vueltas. Te guiamos desde el RUC hasta que tu empresa esté lista para operar y facturar.</p>
+        <ul class="serv-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Constitución y obtención de RUC</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Elección del tipo de sociedad</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Licencias y formalización</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ NOSOTROS ============================ -->
+<section class="section dark nosotros" id="nosotros">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow on-dark">Por qué elegirnos</span>
+      <h2>Un estudio cercano que conoce a Piura y a su gente.</h2>
+      <p>Acompañamos a empresas y emprendedores del norte del Perú con el rigor de un gran estudio y la cercanía de un equipo que responde cuando lo necesitas. Nuestra meta es simple: que crezcas tranquilo.</p>
+    </div>
+
+    <div class="nos-grid">
+      <div class="nos-media reveal">
+        <!-- REEMPLAZAR: foto real del equipo / oficina en Piura -->
+        <img src="https://placehold.co/720x540/0F4C4A/FBFAF7?text=Equipo+Lescano+%26+Asociados" alt="Equipo de Lescano & Asociados en Piura" loading="lazy" />
+        <div class="floating-stat">
+          <span class="fs-num">100%</span>
+          <span class="fs-lbl">de nuestros clientes nos recomienda</span>
+        </div>
+      </div>
+
+      <div class="valores">
+        <div class="valor reveal">
+          <div class="valor-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h4>Confianza</h4>
+          <p>Recomendados por el 100% de nuestros clientes. La reputación se construye cumpliendo, una y otra vez.</p>
+        </div>
+        <div class="valor reveal d1">
+          <div class="valor-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div>
+          <h4>Rigor técnico</h4>
+          <p>Precisión y cumplimiento normativo en cada proceso. Trabajamos al detalle para que nada quede al azar.</p>
+        </div>
+        <div class="valor reveal d2">
+          <div class="valor-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div>
+          <h4>Cercanía</h4>
+          <p>Atención siempre abierta y comunicación clara. Hablamos tu idioma, sin tecnicismos innecesarios.</p>
+        </div>
+        <div class="valor reveal d3">
+          <div class="valor-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V4a1 1 0 011-1h13l-2.5 4L18 11H5"/></svg></div>
+          <h4>Compromiso</h4>
+          <p>Enfocados en el cumplimiento de tus objetivos. Tu negocio es nuestra prioridad, no un expediente más.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat reveal"><span class="num" data-target="100" data-suffix="%">100%</span><span class="lbl">Clientes que nos recomiendan</span></div>
+      <!-- REEMPLAZAR: confirmar años de experiencia reales -->
+      <div class="stat reveal d1"><span class="num" data-target="8" data-prefix="+">+8</span><span class="lbl">Años acompañando negocios</span></div>
+      <div class="stat reveal d2"><span class="num" data-target="14">14</span><span class="lbl">Reseñas de clientes</span></div>
+      <div class="stat reveal d3"><span class="num" data-target="7.6" data-suffix=" mil">7.6 mil</span><span class="lbl">Seguidores en redes</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TESTIMONIOS ============================ -->
+<section class="section testimonios" id="testimonios">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Reseñas</span>
+      <h2>Lo que dicen quienes ya trabajan con nosotros.</h2>
+      <p>La confianza de nuestros clientes es nuestra mejor carta de presentación.</p>
+    </div>
+
+    <div class="proof-bar reveal">
+      <div class="proof-item"><div class="pnum">100%</div><span class="plbl">Recomendado</span></div>
+      <div class="proof-item"><div class="pnum">14</div><span class="plbl">Reseñas</span></div>
+      <div class="proof-item"><div class="pnum">7.6&nbsp;mil</div><span class="plbl">Seguidores</span></div>
+      <div class="proof-item"><div class="pnum">24/7</div><span class="plbl">Siempre abierto</span></div>
+    </div>
+
+    <!-- REEMPLAZAR: testimonios reales de clientes -->
+    <div class="tst-grid">
+      <article class="tst-card reveal">
+        <div class="tst-quote" aria-hidden="true">“</div>
+        <p>Por fin entiendo mis números. Me explican todo en simple y nunca me he atrasado con SUNAT desde que trabajo con ellos. Cero estrés.</p>
+        <div class="tst-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <div class="tst-author">
+          <img src="https://placehold.co/96x96/1B6B68/FBFAF7?text=MR" alt="" loading="lazy" />
+          <div>
+            <div class="ta-name">María Rojas</div>
+            <div class="ta-role">Distribuidora del Norte · Piura</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="tst-card reveal d1">
+        <div class="tst-quote" aria-hidden="true">“</div>
+        <p>Constituyeron mi empresa en tiempo récord y me guiaron paso a paso. Sentí que tenía un socio contable, no solo un proveedor.</p>
+        <div class="tst-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <div class="tst-author">
+          <img src="https://placehold.co/96x96/C9A24B/072623?text=JC" alt="" loading="lazy" />
+          <div>
+            <div class="ta-name">Jorge Castillo</div>
+            <div class="ta-role">Café &amp; Co. · Castilla</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="tst-card reveal d2">
+        <div class="tst-quote" aria-hidden="true">“</div>
+        <p>Las planillas de mi equipo siempre salen a tiempo y sin errores. Responden por WhatsApp el mismo día. Atención de otro nivel.</p>
+        <div class="tst-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <div class="tst-author">
+          <img src="https://placehold.co/96x96/2E8B86/072623?text=LV" alt="" loading="lazy" />
+          <div>
+            <div class="ta-name">Lucía Vásquez</div>
+            <div class="ta-role">Boutique Loreto · Piura</div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="tst-foot reveal">
+      <a href="https://facebook.com/contadorpiura" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+        Lee las 14 reseñas en nuestro Facebook
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTACTO ============================ -->
+<section class="section dark contacto" id="contacto">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow on-dark">Contacto</span>
+      <h2>Conversemos sobre tu negocio.</h2>
+      <p>La primera consulta es gratis. Escríbenos por WhatsApp y te respondemos hoy mismo, sin compromiso.</p>
+    </div>
+
+    <div class="cnt-grid">
+      <div class="cnt-info reveal">
+        <div class="cnt-row">
+          <span class="ci-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div><div class="ci-lbl">Dirección</div><span class="ci-val">Av. Loreto Norte 252 A, Piura, Perú</span></div>
+        </div>
+        <div class="cnt-row">
+          <span class="ci-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg></span>
+          <div><div class="ci-lbl">Teléfono / WhatsApp</div><a class="ci-val" href="https://wa.me/51969018352?text=Hola%2C%20quiero%20una%20consulta%20contable%2Ftributaria." target="_blank" rel="noopener">969 018 352</a></div>
+        </div>
+        <div class="cnt-row">
+          <span class="ci-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></span>
+          <div><div class="ci-lbl">Correo</div><a class="ci-val" href="mailto:contabilidadlescano@gmail.com">contabilidadlescano@gmail.com</a></div>
+        </div>
+        <div class="cnt-row">
+          <span class="ci-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <div><div class="ci-lbl">Horario</div><span class="ci-val">Siempre abierto · Atención permanente</span></div>
+        </div>
+
+        <a class="btn btn-wa btn-block" href="https://wa.me/51969018352?text=Hola%2C%20quiero%20una%20consulta%20contable%2Ftributaria." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.711zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+          Escríbenos por WhatsApp
+        </a>
+
+        <div class="cnt-social">
+          <a href="https://facebook.com/contadorpiura" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+          </a>
+          <a href="https://facebook.com/contadorpiura" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <form class="cnt-form reveal d1" id="contactForm" novalidate>
+        <h3>Cuéntanos qué necesitas</h3>
+        <p class="ff-sub">Completa el formulario y continúa la conversación por WhatsApp.</p>
+        <div class="field">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required />
+        </div>
+        <div class="field">
+          <label for="telefono">Teléfono</label>
+          <input id="telefono" name="telefono" type="tel" placeholder="Ej. 969 018 352" required />
+        </div>
+        <div class="field">
+          <label for="consulta">Tu consulta</label>
+          <textarea id="consulta" name="consulta" placeholder="Ej. Necesito ayuda con mis declaraciones de SUNAT…" required></textarea>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.711zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+          Enviar por WhatsApp
+        </button>
+        <p class="form-note">Al enviar te llevamos a WhatsApp con tu mensaje listo.</p>
+      </form>
+    </div>
+
+    <div class="cnt-map reveal">
+      <iframe
+        title="Ubicación de Lescano & Asociados en Av. Loreto Norte 252 A, Piura"
+        src="https://www.google.com/maps?q=Av.%20Loreto%20Norte%20252%20A,%20Piura,%20Per%C3%BA&output=embed"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="brand_assets/logo-icon-white.png" alt="Lescano & Asociados" />
+        <div class="fb-name">LESCANO &amp; ASOCIADOS</div>
+        <div class="fb-sub">Estudio Contable</div>
+        <p>Asesoría tributaria y contable que impulsa el crecimiento de los negocios de Piura, con cercanía, rigor técnico y confianza.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Navegación</h5>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="#servicios">Asesoría Tributaria</a></li>
+          <li><a href="#servicios">Asesoría Contable</a></li>
+          <li><a href="#servicios">Planillas y RR. HH.</a></li>
+          <li><a href="#servicios">Constitución de Empresas</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Contacto</h5>
+        <ul>
+          <li>Av. Loreto Norte 252 A, Piura</li>
+          <li><a href="https://wa.me/51969018352" target="_blank" rel="noopener">WhatsApp: 969 018 352</a></li>
+          <li><a href="mailto:contabilidadlescano@gmail.com">contabilidadlescano@gmail.com</a></li>
+          <li><a href="https://facebook.com/contadorpiura" target="_blank" rel="noopener">facebook.com/contadorpiura</a></li>
+          <li>Siempre abierto · Atención permanente</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> Lescano &amp; Asociados — Estudio Contable. Piura, Perú.</span>
+      <span>Hecho con rigor y cercanía para los emprendedores de Piura.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================ FLOATING WHATSAPP ============================ -->
+<a class="fab" id="fab" href="https://wa.me/51969018352?text=Hola%2C%20tengo%20una%20consulta%20para%20Lescano%20%26%20Asociados." target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.711zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+  <span class="fab-label">Escríbenos</span>
+</a>
+
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  var toggle = document.getElementById('navToggle');
+  var menu = document.getElementById('mobileMenu');
+  var scrim = document.getElementById('scrim');
+  var fab = document.getElementById('fab');
+
+  // Navbar scrolled state + FAB reveal
+  function onScroll(){
+    var y = window.scrollY || window.pageYOffset;
+    nav.classList.toggle('scrolled', y > 40);
+    fab.classList.toggle('show', y > 520);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // Mobile menu
+  function setMenu(open){
+    menu.classList.toggle('open', open);
+    scrim.classList.toggle('open', open);
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  toggle.addEventListener('click', function(){ setMenu(!menu.classList.contains('open')); });
+  scrim.addEventListener('click', function(){ setMenu(false); });
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+  window.addEventListener('keydown', function(e){ if(e.key === 'Escape') setMenu(false); });
+
+  // Reveal on scroll
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reveals = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:0.14, rootMargin:'0px 0px -8% 0px'});
+    reveals.forEach(function(el){ io.observe(el); });
+  }
+
+  // Stat counters
+  if(!reduce && 'IntersectionObserver' in window){
+    var statEls = document.querySelectorAll('.num[data-target]');
+    var sio = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting) return;
+        var el = en.target;
+        var target = parseFloat(el.getAttribute('data-target'));
+        var prefix = el.getAttribute('data-prefix') || '';
+        var suffix = el.getAttribute('data-suffix') || '';
+        var decimals = (String(target).indexOf('.') > -1) ? 1 : 0;
+        var start = performance.now(), dur = 1400;
+        function tick(now){
+          var p = Math.min((now - start)/dur, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = prefix + (target * eased).toFixed(decimals) + suffix;
+          if(p < 1) requestAnimationFrame(tick);
+          else el.textContent = prefix + target.toFixed(decimals) + suffix;
+        }
+        requestAnimationFrame(tick);
+        sio.unobserve(el);
+      });
+    }, {threshold:0.5});
+    statEls.forEach(function(el){ sio.observe(el); });
+  }
+
+  // Contact form -> WhatsApp
+  var form = document.getElementById('contactForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var nombre = (document.getElementById('nombre').value || '').trim();
+    var tel = (document.getElementById('telefono').value || '').trim();
+    var consulta = (document.getElementById('consulta').value || '').trim();
+    if(!nombre || !consulta){
+      if(!nombre) document.getElementById('nombre').focus();
+      else document.getElementById('consulta').focus();
+      return;
+    }
+    var msg = 'Hola, soy ' + nombre + '.';
+    if(tel) msg += ' Mi teléfono es ' + tel + '.';
+    msg += ' Consulta: ' + consulta;
+    var url = 'https://wa.me/51969018352?text=' + encodeURIComponent(msg);
+    window.open(url, '_blank', 'noopener');
+  });
+
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
